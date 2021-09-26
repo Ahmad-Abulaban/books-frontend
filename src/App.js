@@ -3,7 +3,6 @@ import Header from './Header';
 import IsLoadingAndError from './IsLoadingAndError';
 import Footer from './Footer';
 import BestBooks from './BestBooks';
-import LoginButton from './components/LoginButton';
 import Profile from './components/Profile';
 import Login from './Login'
 import { withAuth0 } from '@auth0/auth0-react';
@@ -16,12 +15,11 @@ import {
 class App extends React.Component {
 
   render() {
-    console.log('app', this.props);
     const {isAuthenticated } = this.props.auth0;
     return(
       <>
         <Router>
-          {/* <IsLoadingAndError> */}
+          <IsLoadingAndError>
             <Header Authenticated= {isAuthenticated}/>
             <Switch>
               <Route exact path="/">
@@ -32,7 +30,7 @@ class App extends React.Component {
             </Route>
             </Switch>
             <Footer />
-          {/* </IsLoadingAndError> */}
+          </IsLoadingAndError>
         </Router>
       </>
     );
