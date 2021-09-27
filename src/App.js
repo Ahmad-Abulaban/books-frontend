@@ -20,7 +20,7 @@ class App extends React.Component {
       <>
         <Router>
           <IsLoadingAndError>
-            <Header Authenticated= {isAuthenticated}/>
+            <Header/>
             <Switch>
               <Route exact path="/">
               {isAuthenticated ? <BestBooks/> : <Login/>}
