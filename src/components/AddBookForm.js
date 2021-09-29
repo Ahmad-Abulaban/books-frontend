@@ -15,7 +15,7 @@ class AddBookForm extends React.Component {
       email: user.email,
     };
     let booksData = await axios.post(
-      `${process.env.REACT_APP_SERVER}/books`,
+      `${process.env.REACT_APP_SERVER}/addBook`,
       book
     );
     this.props.addBook(booksData.data);

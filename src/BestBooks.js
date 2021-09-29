@@ -19,27 +19,27 @@ class MyFavoriteBooks extends React.Component {
 
   componentDidMount = async () => {
     let { user } = this.props.auth0;
-    let link = `${process.env.REACT_APP_SERVER}/books?emailin=${user.email}`;
+    let link = `${process.env.REACT_APP_SERVER}/getbooks`;
     let BooksBackend = await axios.get(link);
     this.setState({
       books: BooksBackend.data,
     });
   };
 
-  handleForm = async (event) => {
-    event.preventDefault();
+  // handleForm = async (event) => {
+  //   event.preventDefault();
 
-    let BookInfo = {
-      title: event.target.title.value,
-      status: event.target.status.value,
-      Description: event.target.Description.value,
-    }
-    console.log(BookInfo);
-    // let booksData = await axios.get(``);
-    // this.setState({
-    //   books: booksData.data,
-    // });
-  };
+  //   let BookInfo = {
+  //     title: event.target.title.value,
+  //     status: event.target.status.value,
+  //     Description: event.target.Description.value,
+  //   }
+  //   console.log(BookInfo);
+  //   // let booksData = await axios.get(``);
+  //   // this.setState({
+  //   //   books: booksData.data,
+  //   // });
+  // };
 
 
   handleClose = () => {
@@ -66,7 +66,7 @@ class MyFavoriteBooks extends React.Component {
         <h1>My Favorite Books</h1>
         <p>This is a collection of my favorite books</p>
         <button onClick={this.handleShow}>AddBook</button>
-        {this.state.showModel && <AddBookForm bookF={this.handleForm} showModel={this.state.showModel} close={this.handleClose} addBook={this.addBook.bind(this)}/>}
+        {this.state.showModel && <AddBookForm showModel={this.state.showModel} close={this.handleClose} addBook={this.addBook.bind(this)}/>}
         {this.state.books && (
           <CardGroup>
             {this.state.books.map((item) => {
