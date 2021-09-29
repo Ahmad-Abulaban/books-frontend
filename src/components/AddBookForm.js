@@ -5,7 +5,7 @@ import { withAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 
 class AddBookForm extends React.Component {
-  submitBookInfo = async (e) => {
+  SBInfo = async (e) => {
     e.preventDefault();
     const { user } = this.props.auth0;
     let book = {
@@ -25,13 +25,12 @@ class AddBookForm extends React.Component {
   render() {
     return (
       <div>
-
         <Modal show={this.props.showModel} onHide={this.props.close}>
           <Modal.Header closeButton>
             <Modal.Title>Add Books</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form onSubmit={this.submitBookInfo.bind(this)}>
+            <Form onSubmit={this.SBInfo.bind(this)}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Book Title</Form.Label>
                 <Form.Control type="text" placeholder="name" name="title" />
