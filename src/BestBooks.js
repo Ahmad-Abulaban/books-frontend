@@ -18,7 +18,7 @@ class MyFavoriteBooks extends React.Component {
   }
 
   componentDidMount = async () => {
-    let { user } = this.props.auth0;
+    // let { user } = this.props.auth0;
     let link = `${process.env.REACT_APP_SERVER}/getbooks`;
     let BooksBackend = await axios.get(link);
     this.setState({
